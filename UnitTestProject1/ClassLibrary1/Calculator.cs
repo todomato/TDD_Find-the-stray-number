@@ -10,7 +10,14 @@ namespace ClassLibrary1
 
         public int Stray(int[] array)
         {
-            return 2;
+            var first = array[0];
+
+            if (array.Where(c => c == first).Count() != 1)
+            {
+                return array.Where(c => c != first).Single();
+            }
+
+            return first;
         }
     }
 }
